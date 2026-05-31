@@ -116,6 +116,7 @@
       <ul>
         <li><a href="#sample-statistics">Sample Statistics</a></li>
 	<li><a href="#linear-transformations">Linear Transformations</a></li>
+<li><a href="#linear-combinations">Linear Combinations</a></li>
         <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
         <li><a href="#regression-ss">Regression Sum of Squares</a></li>
         <li><a href="#model-evaluation">Model Evaluation</a></li>
@@ -203,7 +204,8 @@
         <mo>⁢</mo>
         <mi>V</mi><mo stretchy="true">(</mo><mi>X</mi><mo stretchy="true">)</mo>
       </math>
-
+</section>
+<section id="linear-combinations" aria-labelledby="linear-combinations-heading">
       <h3 id="linear-combinations-heading">Linear Combinations</h3>
 
       <p>Mean:</p>
@@ -280,15 +282,15 @@
     <section id="central-limit-theorem" aria-labelledby="central-limit-theorem-heading">
       <h3 id="central-limit-theorem-heading">Central Limit Theorem</h3>
 
-      <math display="inline" aria-label="n greater than 30">
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="n greater than 30">
   <mi>n</mi>
   <mo>&gt;</mo>
   <mn>30</mn>
 </math>
-      <math display="block" aria-label="X bar is approximately distributed as normal with mean mu and standard deviation sigma over square root of n">
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="X bar is approximately distributed as normal with mean mu and standard deviation sigma over square root of n">
   <mover>
     <mi>X</mi>
-    <mo>¯</mo>
+    <mo>_</mo>
   </mover>
   <mover>
     <mo>∼</mo>
@@ -310,92 +312,118 @@
 </math>    
 </section>
 
-    <!-- Regression Sum of Squares -->
-    <section id="regression-ss" aria-labelledby="regression-ss-heading">
-      <h3 id="regression-ss-heading">Regression Sum of Squares</h3>
+    <!-- One Sample Inference - Population Mean -->
+    <section id="one-sample-mean" aria-labelledby="one-sample-mean-heading">
+      <h3 id="one-sample-mean-heading">One Sample Inference - Population Mean</h3>
 
       <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
             aria-label="SST equals SSE plus SSR">
-        <mi>SST</mi><mo>=</mo><mi>SSE</mi><mo>+</mo><mi>SSR</mi>
-      </math>
+<p>Two Sided Confidence Interval:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="x bar plus or minus t sub 1 minus alpha over 2 comma n minus 1, times s over square root of n">
+  <mover>
+    <mi>x</mi>
+    <mo>_</mo>
+  </mover>
+  <mo>∓</mo>
+  <msub>
+    <mi>t</mi>
+    <mrow>
+      <mo>(</mo>
+      <mn>1</mn>
+      <mo>−</mo>
+      <mi>α</mi>
+      <mo>/</mo>
+      <mn>2</mn>
+      <mo>,</mo>
+      <mi>n</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>)</mo>
+    </mrow>
+  </msub>
+  <mfrac>
+    <mi>s</mi>
+    <msqrt>
+      <mi>n</mi>
+    </msqrt>
+  </mfrac>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Degrees of freedom: n minus 1 equals n minus p minus 1 plus p">
-        <mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>=</mo>
-        <mo>(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>+</mo>
-        <mi>p</mi>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SST equals sum of (y_i minus y-bar) squared">
-        <mi>SST</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>n</mi>
-        </munderover>
-        <msup>
+<p>Sample size:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="n greater than or equal to ceiling of 2 z sub 1 minus alpha over 2, times sigma over width, squared">
+  <mi>n</mi>
+  <mo>≥</mo>
+  <mrow>
+    <mo>⌈</mo>
+    <msup>
+      <mrow>
+        <mo>(</mo>
+        <mn>2</mn>
+        <msub>
+          <mi>z</mi>
           <mrow>
-            <mo>(</mo><msub><mi>y</mi><mi>i</mi></msub>
+            <mn>1</mn>
             <mo>−</mo>
-            <mover><mi>y</mi><mo>_</mo></mover>
-            <mo>)</mo>
+            <mi>α</mi>
+            <mo>/</mo>
+            <mn>2</mn>
           </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
+        </msub>
+        <mfrac>
+          <mi>σ</mi>
+          <mtext>width</mtext>
+        </mfrac>
+        <mo>)</mo>
+      </mrow>
+      <mn>2</mn>
+    </msup>
+    <mo>⌉</mo>
+  </mrow>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSE equals sum of (y_i minus y-hat_i) squared">
-        <mi>SSE</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>n</mi>
-        </munderover>
-        <msup>
-          <mrow>
-            <mo>(</mo><msub><mi>y</mi><mi>i</mi></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSR equals sum of (y-hat_i minus y-bar) squared">
-        <mi>SSR</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>n</mi>
-        </munderover>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mover><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub>
-            <mo>−</mo>
-            <mover><mi>y</mi><mo>_</mo></mover>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="MS equals SS divided by df">
-        <mi>MS</mi><mo>=</mo><mi>SS</mi><mo>/</mo><mi>df</mi>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="s squared equals MSE">
-        <msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mi>MSE</mi>
-      </math>
-    </section>
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals x bar minus mu sub 0, over s over square root of n, which under H sub 0 is distributed as t with n minus 1 degrees of freedom">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mover>
+        <mi>x</mi>
+        <mo>_</mo>
+      </mover>
+      <mo>−</mo>
+      <msub>
+        <mi>μ</mi>
+        <mn>0</mn>
+      </msub>
+    </mrow>
+    <mrow>
+      <mi>s</mi>
+      <mo>/</mo>
+      <msqrt>
+        <mi>n</mi>
+      </msqrt>
+    </mrow>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msub>
+    <mi>t</mi>
+    <mrow>
+      <mi>n</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+    </mrow>
+  </msub>
+</math>    
+</section>
 
     <!-- Model Evaluation Measures -->
     <section id="model-evaluation" aria-labelledby="model-evaluation-heading">

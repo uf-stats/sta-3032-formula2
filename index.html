@@ -116,7 +116,7 @@
       <ul>
         <li><a href="#sample-statistics">Sample Statistics</a></li>
 	<li><a href="#linear-transformations">Linear Transformations</a></li>
-        <li><a href="#regression-model">Regression Model</a></li>
+        <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
         <li><a href="#regression-ss">Regression Sum of Squares</a></li>
         <li><a href="#model-evaluation">Model Evaluation</a></li>
         <li><a href="#inference-regression">Inference for Regression</a></li>
@@ -276,77 +276,39 @@
       </math>
     </section>
 
-    <!-- Regression Model -->
-    <section id="regression-model" aria-labelledby="regression-model-heading">
-      <h3 id="regression-model-heading">Regression Model</h3>
+    <!-- Central Limit Theorem -->
+    <section id="central-limit-theorem" aria-labelledby="central-limit-theorem-heading">
+      <h3 id="central-limit-theorem-heading">Central Limit Theorem</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Y_i equals beta_0 plus beta_1 x_1i plus beta_p x_pi plus epsilon_i, where epsilon_i is i.i.d. Normal 0 sigma">
-        <mrow>
-          <msub><mi>Y</mi><mi>i</mi></msub>
-          <mo>=</mo>
-          <msub><mi>β</mi><mn>0</mn></msub>
-          <mo>+</mo>
-          <msub><mi>β</mi><mn>1</mn></msub>
-          <msub><mi>x</mi><mrow><mn>1</mn><mo>,</mo><mi>i</mi></mrow></msub>
-          <mo>+</mo>
-          <msub><mi>β</mi><mi>p</mi></msub>
-          <msub><mi>x</mi><mrow><mi>p</mi><mo>,</mo><mi>i</mi></mrow></msub>
-          <mo>+</mo>
-          <msub><mi>ϵ</mi><mi>i</mi></msub>
-          <mspace width="2em"></mspace>
-          <msub><mi>ϵ</mi><mi>i</mi></msub>
-          <mover><mo>~</mo><mstyle mathsize="0.8em"><mtext>i.i.d.</mtext></mstyle></mover>
-          <mspace width="0.2em"></mspace>
-          <mi>N</mi>
-          <mo stretchy="false">(</mo>
-          <mn>0</mn><mo>,</mo><mi>σ</mi>
-          <mo stretchy="false">)</mo>
-        </mrow>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="b_1 equals sum of (x_i minus x-bar)(y_i minus y-bar) divided by sum of (x_i minus x-bar) squared">
-        <msub><mi>b</mi><mn>1</mn></msub>
-        <mo>=</mo>
-        <mfrac>
-          <mrow>
-            <munderover>
-              <mo>∑</mo>
-              <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-              <mi>n</mi>
-            </munderover>
-            <mo stretchy="false">(</mo>
-            <msub><mi>x</mi><mi>i</mi></msub>
-            <mo>−</mo>
-            <mover><mi>x</mi><mo>_</mo></mover>
-            <mo stretchy="false">)</mo>
-            <mo stretchy="false">(</mo>
-            <msub><mi>y</mi><mi>i</mi></msub>
-            <mo>−</mo>
-            <mover><mi>y</mi><mo>_</mo></mover>
-            <mo stretchy="false">)</mo>
-          </mrow>
-          <mrow>
-            <munderover>
-              <mo>∑</mo>
-              <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-              <mi>n</mi>
-            </munderover>
-            <msup>
-              <mrow>
-                <mo stretchy="false">(</mo>
-                <msub><mi>x</mi><mi>i</mi></msub>
-                <mo>−</mo>
-                <mover><mi>x</mi><mo>_</mo></mover>
-                <mo stretchy="false">)</mo>
-              </mrow>
-              <mn>2</mn>
-            </msup>
-          </mrow>
-        </mfrac>
-      </math>
-    </section>
+      <math display="inline" aria-label="n greater than 30">
+  <mi>n</mi>
+  <mo>&gt;</mo>
+  <mn>30</mn>
+</math>
+      <math display="block" aria-label="X bar is approximately distributed as normal with mean mu and standard deviation sigma over square root of n">
+  <mover>
+    <mi>X</mi>
+    <mo>¯</mo>
+  </mover>
+  <mover>
+    <mo>∼</mo>
+    <mtext style="font-size: 70%;">approx.</mtext>
+  </mover>
+  <mi>N</mi>
+  <mrow>
+    <mo>(</mo>
+    <mi>μ</mi>
+    <mo>,</mo>
+    <mfrac>
+      <mi>σ</mi>
+      <msqrt>
+        <mi>n</mi>
+      </msqrt>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>    
+</section>
 
     <!-- Regression Sum of Squares -->
     <section id="regression-ss" aria-labelledby="regression-ss-heading">

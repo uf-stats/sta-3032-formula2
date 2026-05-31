@@ -118,8 +118,8 @@
 	<li><a href="#linear-transformations">Linear Transformations</a></li>
 <li><a href="#linear-combinations">Linear Combinations</a></li>
         <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
-        <li><a href="#regression-ss">Regression Sum of Squares</a></li>
-        <li><a href="#model-evaluation">Model Evaluation</a></li>
+        <li><a href="#one-sample-mean">One Sample - Mean</a></li>
+        <li><a href="#one-sample-proportion">One Sample - Proportion</a></li>
         <li><a href="#inference-regression">Inference for Regression</a></li>
         <li><a href="#crd-model">CRD Model</a></li>
         <li><a href="#crd-ss">CRD Sums of Squares</a></li>
@@ -425,52 +425,135 @@
 </math>    
 </section>
 
-    <!-- Model Evaluation Measures -->
-    <section id="model-evaluation" aria-labelledby="model-evaluation-heading">
-      <h3 id="model-evaluation-heading">Model Evaluation Measures</h3>
+    <!-- One Sample Inference - Population Proportion -->
+    <section id="one-sample-proportion" aria-labelledby="one-sample-proportion-heading">
+      <h3 id="one-sample-proportion-heading">One Sample Inference - Population Proportion</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="R squared equals SSR over SST equals 1 minus SSE over SST">
-        <msup><mi>R</mi><mn>2</mn></msup>
-        <mo>=</mo><mi>SSR</mi><mo>/</mo><mi>SST</mi>
-        <mo>=</mo>
-        <mn>1</mn><mo>−</mo><mi>SSE</mi><mo>/</mo><mi>SST</mi>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Adjusted R squared formula">
-        <msubsup><mi>R</mi><mi>adj</mi><mn>2</mn></msubsup>
-        <mo>=</mo>
-        <msup><mi>R</mi><mn>2</mn></msup>
-        <mo>−</mo>
-        <mo>(</mo><mn>1</mn><mo>−</mo><msup><mi>R</mi><mn>2</mn></msup><mo>)</mo>
-        <mfrac>
+<p>Two sided C.I. (proportion):</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="p tilde plus or minus z sub 1 minus alpha over 2, times square root of p tilde times 1 minus p tilde over n tilde">
+  <mover>
+    <mi>p</mi>
+    <mo>~</mo>
+  </mover>
+  <mo>∓</mo>
+  <msub>
+    <mi>z</mi>
+    <mrow>
+      <mn>1</mn>
+      <mo>−</mo>
+      <mi>α</mi>
+      <mo>/</mo>
+      <mn>2</mn>
+    </mrow>
+  </msub>
+  <msqrt>
+    <mfrac>
+      <mrow>
+        <mover>
           <mi>p</mi>
-          <mrow><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn></mrow>
-        </mfrac>
-        <mo>=</mo>
-        <mn>1</mn><mo>−</mo>
-        <mfrac>
-          <mrow><mi>SSE</mi><mo>/</mo><mo>(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow>
-          <mrow><mi>SST</mi><mo>/</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow>
-        </mfrac>
-      </math>
+          <mo>~</mo>
+        </mover>
+        <mo>(</mo>
+        <mn>1</mn>
+        <mo>−</mo>
+        <mover>
+          <mi>p</mi>
+          <mo>~</mo>
+        </mover>
+        <mo>)</mo>
+      </mrow>
+      <mover>
+        <mi>n</mi>
+        <mo>~</mo>
+      </mover>
+    </mfrac>
+  </msqrt>
+  <mo>,</mo>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="AIC equals 2 times p plus 1 plus n log SSE over n plus c">
-        <mi>AIC</mi>
-        <mo>=</mo>
-        <mn>2</mn><mo>(</mo><mi>p</mi><mo>+</mo><mn>1</mn><mo>)</mo>
-        <mo>+</mo>
-        <mi>n</mi><mo>log</mo>
+<p>where <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="n tilde equals n plus 4">
+  <mover>
+    <mi>n</mi>
+    <mo>~</mo>
+  </mover>
+  <mo>:=</mo>
+  <mi>n</mi>
+  <mo>+</mo>
+  <mn>4</mn>
+</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="p tilde equals x plus 2 over n tilde">
+  <mover>
+    <mi>p</mi>
+    <mo>~</mo>
+  </mover>
+  <mo>:=</mo>
+  <mo>(</mo>
+  <mi>x</mi>
+  <mo>+</mo>
+  <mn>2</mn>
+  <mo>)</mo>
+  <mo>/</mo>
+  <mover>
+    <mi>n</mi>
+    <mo>~</mo>
+  </mover>
+</math></p>
+
+<p>Test statistic: Agresti-Coull</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals p tilde minus p sub 0, over square root of p tilde times 1 minus p tilde over n tilde, which under H sub 0 is distributed as normal with mean 0 and standard deviation 1">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mover>
+        <mi>p</mi>
+        <mo>~</mo>
+      </mover>
+      <mo>−</mo>
+      <msub>
+        <mi>p</mi>
+        <mn>0</mn>
+      </msub>
+    </mrow>
+    <msqrt>
+      <mfrac>
         <mrow>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
           <mo>(</mo>
-          <mfrac><mi>SSE</mi><mi>n</mi></mfrac>
+          <mn>1</mn>
+          <mo>−</mo>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
           <mo>)</mo>
         </mrow>
-        <mo>+</mo><mi>c</mi>
-      </math>
-    </section>
+        <mover>
+          <mi>n</mi>
+          <mo>~</mo>
+        </mover>
+      </mfrac>
+    </msqrt>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <mi>N</mi>
+  <mo>(</mo>
+  <mn>0</mn>
+  <mo>,</mo>
+  <mn>1</mn>
+  <mo>)</mo>
+</math>    
+</section>
 
     <!-- Inference for Regression Analysis -->
     <section id="inference-regression" aria-labelledby="inference-regression-heading">

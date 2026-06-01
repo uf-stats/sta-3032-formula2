@@ -116,14 +116,13 @@
       <ul>
         <li><a href="#sample-statistics">Sample Statistics</a></li>
 	<li><a href="#linear-transformations">Linear Transformations</a></li>
-<li><a href="#linear-combinations">Linear Combinations</a></li>
+        <li><a href="#linear-combinations">Linear Combinations</a></li>
         <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
         <li><a href="#one-sample-mean">One Sample - Mean</a></li>
         <li><a href="#one-sample-proportion">One Sample - Proportion</a></li>
         <li><a href="#one-sample-variance">One Sample - Variance</a></li>
         <li><a href="#one-sample-nonparametric">One Sample - Nonparametric</a></li>
-        <li><a href="#crd-ss">CRD Sums of Squares</a></li>
-        <li><a href="#crd-inference">CRD Inference</a></li>
+        <li><a href="#two-sample-mean">Two Sample - Mean</a></li>
         <li><a href="#post-hoc">Post Hoc Comparisons</a></li>
         <li><a href="#rbd-model">RBD Model</a></li>
         <li><a href="#rbd-ss">RBD Sum of Squares</a></li>
@@ -760,115 +759,336 @@
 </ol>    
 </section>
 
-    <!-- CRD Sums of Squares -->
-    <section id="crd-ss" aria-labelledby="crd-ss-heading">
-      <h3 id="crd-ss-heading">CRD Sums of Squares</h3>
+    <!-- Two Sample Inference - Population Mean -->
+    <section id="two-sample-mean" aria-labelledby="two-sample-mean-heading">
+      <h3 id="two-sample-mean-heading">Two Sample Inference - Population Mean</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SST equals SSE plus SSTrt">
-        <mi>SST</mi><mo>=</mo><mi>SSE</mi><mo>+</mo><mi>SSTrt</mi>
-      </math>
+<p>Two sided C.I. (means):</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="x bar minus y bar plus or minus t sub 1 minus alpha over 2 comma nu, times square root of s squared sub X over n sub X plus s squared sub Y over n sub Y">
+  <mover>
+    <mi>x</mi>
+    <mo>_</mo>
+  </mover>
+  <mo>−</mo>
+  <mover>
+    <mi>y</mi>
+    <mo>_</mo>
+  </mover>
+  <mo>∓</mo>
+  <msub>
+    <mi>t</mi>
+    <mrow>
+      <mn>1</mn>
+      <mo>−</mo>
+      <mi>α</mi>
+      <mo>/</mo>
+      <mn>2</mn>
+      <mo>,</mo>
+      <mi>ν</mi>
+    </mrow>
+  </msub>
+  <msqrt>
+    <mfrac>
+      <msubsup>
+        <mi>s</mi>
+        <mi>X</mi>
+        <mn>2</mn>
+      </msubsup>
+      <msub>
+        <mi>n</mi>
+        <mi>X</mi>
+      </msub>
+    </mfrac>
+    <mo>+</mo>
+    <mfrac>
+      <msubsup>
+        <mi>s</mi>
+        <mi>Y</mi>
+        <mn>2</mn>
+      </msubsup>
+      <msub>
+        <mi>n</mi>
+        <mi>Y</mi>
+      </msub>
+    </mfrac>
+  </msqrt>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="N minus 1 equals N minus t plus t minus 1">
-        <mo>(</mo><mi>N</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>=</mo>
-        <mo>(</mo><mi>N</mi><mo>−</mo><mi>t</mi><mo>)</mo>
+<p>where</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="nu equals s squared sub X over n sub X plus s squared sub Y over n sub Y, all squared, over s squared sub X over n sub X squared over n sub X minus 1 plus s squared sub Y over n sub Y squared over n sub Y minus 1">
+  <mi>ν</mi>
+  <mo>=</mo>
+  <mfrac>
+    <msup>
+      <mrow>
+        <mo>(</mo>
+        <mfrac>
+          <msubsup>
+            <mi>s</mi>
+            <mi>X</mi>
+            <mn>2</mn>
+          </msubsup>
+          <msub>
+            <mi>n</mi>
+            <mi>X</mi>
+          </msub>
+        </mfrac>
         <mo>+</mo>
-        <mo>(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SST equals double sum of (y_ij minus y-bar++) squared">
-        <mi>SST</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <msub><mi>n</mi><mi>i</mi></msub>
-        </munderover>
+        <mfrac>
+          <msubsup>
+            <mi>s</mi>
+            <mi>Y</mi>
+            <mn>2</mn>
+          </msubsup>
+          <msub>
+            <mi>n</mi>
+            <mi>Y</mi>
+          </msub>
+        </mfrac>
+        <mo>)</mo>
+      </mrow>
+      <mn>2</mn>
+    </msup>
+    <mrow>
+      <mfrac>
         <msup>
           <mrow>
             <mo>(</mo>
-            <msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
+            <msubsup>
+              <mi>s</mi>
+              <mi>X</mi>
+              <mn>2</mn>
+            </msubsup>
+            <mo>/</mo>
+            <msub>
+              <mi>n</mi>
+              <mi>X</mi>
+            </msub>
             <mo>)</mo>
           </mrow>
           <mn>2</mn>
         </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSE equals double sum of (y_ij minus y-bar_i+) squared">
-        <mi>SSE</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <msub><mi>n</mi><mi>i</mi></msub>
-        </munderover>
+        <mrow>
+          <msub>
+            <mi>n</mi>
+            <mi>X</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+        </mrow>
+      </mfrac>
+      <mo>+</mo>
+      <mfrac>
         <msup>
           <mrow>
             <mo>(</mo>
-            <msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
+            <msubsup>
+              <mi>s</mi>
+              <mi>Y</mi>
+              <mn>2</mn>
+            </msubsup>
+            <mo>/</mo>
+            <msub>
+              <mi>n</mi>
+              <mi>Y</mi>
+            </msub>
             <mo>)</mo>
           </mrow>
           <mn>2</mn>
         </msup>
-      </math>
+        <mrow>
+          <msub>
+            <mi>n</mi>
+            <mi>Y</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+        </mrow>
+      </mfrac>
+    </mrow>
+  </mfrac>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSTrt equals double sum of (y-bar_i+ minus y-bar++) squared">
-        <mi>SSTrt</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <msub><mi>n</mi><mi>i</mi></msub>
-        </munderover>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-    </section>
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals x bar minus y bar minus Delta sub 0, over square root of s squared sub X over n sub X plus s squared sub Y over n sub Y, which under H sub 0 is distributed as t with nu degrees of freedom">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mover>
+        <mi>x</mi>
+        <mo>_</mo>
+      </mover>
+      <mo>−</mo>
+      <mover>
+        <mi>y</mi>
+        <mo>_</mo>
+      </mover>
+      <mo>−</mo>
+      <msub>
+        <mi>Δ</mi>
+        <mn>0</mn>
+      </msub>
+    </mrow>
+    <msqrt>
+      <msubsup>
+        <mi>s</mi>
+        <mi>X</mi>
+        <mn>2</mn>
+      </msubsup>
+      <mo>/</mo>
+      <msub>
+        <mi>n</mi>
+        <mi>X</mi>
+      </msub>
+      <mo>+</mo>
+      <msubsup>
+        <mi>s</mi>
+        <mi>Y</mi>
+        <mn>2</mn>
+      </msubsup>
+      <mo>/</mo>
+      <msub>
+        <mi>n</mi>
+        <mi>Y</mi>
+      </msub>
+    </msqrt>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msub>
+    <mi>t</mi>
+    <mi>ν</mi>
+  </msub>
+</math>
 
-    <!-- CRD Inference -->
-    <section id="crd-inference" aria-labelledby="crd-inference-heading">
-      <h3 id="crd-inference-heading">CRD Inference</h3>
+<p>If <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="sigma squared sub X equals sigma squared sub Y">
+  <msubsup>
+    <mi>σ</mi>
+    <mi>X</mi>
+    <mn>2</mn>
+  </msubsup>
+  <mo>=</mo>
+  <msubsup>
+    <mi>σ</mi>
+    <mi>Y</mi>
+    <mn>2</mn>
+  </msubsup>
+</math>, then replace <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="s squared sub X">
+  <msubsup>
+    <mi>s</mi>
+    <mi>X</mi>
+    <mn>2</mn>
+  </msubsup>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="s squared sub Y">
+  <msubsup>
+    <mi>s</mi>
+    <mi>Y</mi>
+    <mn>2</mn>
+  </msubsup>
+</math> with</p>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Test statistic equals MSTrt over MSE, distributed as F with t minus 1 and N minus t degrees of freedom under H_0">
-        <mi>T.S.</mi>
-        <mo>=</mo>
-        <mfrac><mi>MSTrt</mi><mi>MSE</mi></mfrac>
-        <mspace width="0.5em"></mspace>
-        <mover><mo>∼</mo><msub><mi>H</mi><mn>0</mn></msub></mover>
-        <mspace width="0.5em"></mspace>
-        <msub><mi>F</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn><mo>,</mo><mi>N</mi><mo>−</mo><mi>t</mi></mrow></msub>
-      </math>
-    </section>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="s squared sub p equals n sub X minus 1 over n sub X plus n sub Y minus 2, times s squared sub X, plus n sub Y minus 1 over n sub X plus n sub Y minus 2, times s squared sub Y">
+  <msubsup>
+    <mi>s</mi>
+    <mi>p</mi>
+    <mn>2</mn>
+  </msubsup>
+  <mo>=</mo>
+  <mrow>
+    <mo>(</mo>
+    <mfrac>
+      <mrow>
+        <mo>(</mo>
+        <msub>
+          <mi>n</mi>
+          <mi>X</mi>
+        </msub>
+        <mo>−</mo>
+        <mn>1</mn>
+        <mo>)</mo>
+      </mrow>
+      <mrow>
+        <msub>
+          <mi>n</mi>
+          <mi>X</mi>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>n</mi>
+          <mi>Y</mi>
+        </msub>
+        <mo>−</mo>
+        <mn>2</mn>
+      </mrow>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+  <msubsup>
+    <mi>s</mi>
+    <mi>X</mi>
+    <mn>2</mn>
+  </msubsup>
+  <mo>+</mo>
+  <mrow>
+    <mo>(</mo>
+    <mfrac>
+      <mrow>
+        <mo>(</mo>
+        <msub>
+          <mi>n</mi>
+          <mi>Y</mi>
+        </msub>
+        <mo>−</mo>
+        <mn>1</mn>
+        <mo>)</mo>
+      </mrow>
+      <mrow>
+        <msub>
+          <mi>n</mi>
+          <mi>X</mi>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>n</mi>
+          <mi>Y</mi>
+        </msub>
+        <mo>−</mo>
+        <mn>2</mn>
+      </mrow>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+  <msubsup>
+    <mi>s</mi>
+    <mi>Y</mi>
+    <mn>2</mn>
+  </msubsup>
+</math>
+
+<p>and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="nu equals n sub X plus n sub Y minus 2">
+  <mi>ν</mi>
+  <mo>=</mo>
+  <msub>
+    <mi>n</mi>
+    <mi>X</mi>
+  </msub>
+  <mo>+</mo>
+  <msub>
+    <mi>n</mi>
+    <mi>Y</mi>
+  </msub>
+  <mo>−</mo>
+  <mn>2</mn>
+</math>.</p>    
+</section>
 
     <!-- Post Hoc Comparisons -->
     <section id="post-hoc" aria-labelledby="post-hoc-heading">

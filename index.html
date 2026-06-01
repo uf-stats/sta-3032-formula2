@@ -120,7 +120,7 @@
         <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
         <li><a href="#one-sample-mean">One Sample - Mean</a></li>
         <li><a href="#one-sample-proportion">One Sample - Proportion</a></li>
-        <li><a href="#inference-regression">Inference for Regression</a></li>
+        <li><a href="#one-sample-variance">One Sample - Variance</a></li>
         <li><a href="#crd-model">CRD Model</a></li>
         <li><a href="#crd-ss">CRD Sums of Squares</a></li>
         <li><a href="#crd-inference">CRD Inference</a></li>
@@ -547,196 +547,127 @@
     </mrow>
   </mover>
   <mi>N</mi>
-  <mo>(</mo>
+  <mi>(</mi>
   <mn>0</mn>
   <mo>,</mo>
   <mn>1</mn>
-  <mo>)</mo>
+  <mi>)</mi>
 </math>    
 </section>
 
-    <!-- Inference for Regression Analysis -->
-    <section id="inference-regression" aria-labelledby="inference-regression-heading">
-      <h3 id="inference-regression-heading">Inference for Regression Analysis</h3>
+    <!-- One Sample Inference - Population Variance -->
+    <section id="one-sample-variance" aria-labelledby="one-sample-variance-heading">
+      <h3 id="one-sample-variance-heading">One Sample Inference - Population Variance</h3>
 
-      <p>Confidence Interval:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="b_j plus or minus t critical value times s of b_j">
-        <msub><mi>b</mi><mi>j</mi></msub>
-        <mo>∓</mo>
-        <msub>
-          <mi>t</mi>
-          <mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>/</mo><mn>2</mn><mo>,</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn></mrow>
-        </msub>
-        <msub>
-          <mi>s</mi>
-          <msub><mi>b</mi><mi>j</mi></msub>
-        </msub>
-      </math>
 
-      <p>Hypothesis Testing:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Test statistic equals b_j minus beta_j0 divided by s of beta_j, distributed as t with n minus p minus 1 degrees of freedom under H_0">
-        <mi>T.S.</mi>
-        <mo>=</mo>
-        <mfrac>
-          <mrow><msub><mi>b</mi><mi>j</mi></msub><mo>−</mo><msub><mi>β</mi><mrow><mi>j</mi><mn>0</mn></mrow></msub></mrow>
-          <msub><mi>s</mi><msub><mi>β</mi><mi>j</mi></msub></msub>
-        </mfrac>
-        <mspace width="0.5em"></mspace>
-        <mover><mo>∼</mo><msub><mi>H</mi><mn>0</mn></msub></mover>
-        <mspace width="0.5em"></mspace>
-        <msub><mi>t</mi><mrow><mi>n</mi><mo>−</mo><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msub>
-      </math>
-
-      <p>Where (for simple linear regression only):</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="s of beta_1 equals s divided by square root of sum of (x_i minus x-bar) squared">
-        <msub><mi>s</mi><msub><mi>β</mi><mn>1</mn></msub></msub>
-        <mo>=</mo>
-        <mfrac>
-          <mi>s</mi>
-          <msqrt>
-            <mrow>
-              <munderover>
-                <mo>∑</mo>
-                <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-                <mi>n</mi>
-              </munderover>
-              <msup>
-                <mrow>
-                  <mo>(</mo><msub><mi>x</mi><mi>i</mi></msub>
-                  <mo>−</mo>
-                  <mover><mi>x</mi><mo>_</mo></mover>
-                  <mo>)</mo>
-                </mrow>
-                <mn>2</mn>
-              </msup>
-            </mrow>
-          </msqrt>
-        </mfrac>
-      </math>
-
-      <p>CI on mean response (for simple linear regression only):</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="y-hat plus or minus t critical times s times square root of 1 over n plus (x_obs minus x-bar) squared over sum of (x_j minus x-bar) squared">
-        <mover><mi>y</mi><mo>^</mo></mover>
-        <mo>∓</mo>
-        <msub>
-          <mi>t</mi>
-          <mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>/</mo><mn>2</mn><mo>,</mo><mi>n</mi><mo>−</mo><mn>2</mn></mrow>
-        </msub>
-        <mrow>
-          <mo>(</mo>
-          <mi>s</mi>
-          <msqrt>
-            <mrow>
-              <mfrac><mn>1</mn><mi>n</mi></mfrac>
-              <mo>+</mo>
-              <mfrac>
-                <msup>
-                  <mrow><mo>(</mo><msub><mi>x</mi><mi>obs</mi></msub><mo>−</mo><mover><mi>x</mi><mo>_</mo></mover><mo>)</mo></mrow>
-                  <mn>2</mn>
-                </msup>
-                <mrow>
-                  <munderover>
-                    <mo>∑</mo>
-                    <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-                    <mi>n</mi>
-                  </munderover>
-                  <msup>
-                    <mrow><mo>(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><mover><mi>x</mi><mo>_</mo></mover><mo>)</mo></mrow>
-                    <mn>2</mn>
-                  </msup>
-                </mrow>
-              </mfrac>
-            </mrow>
-          </msqrt>
-          <mo>)</mo>
-        </mrow>
-      </math>
-
-      <p>PI on response (for simple linear regression only):</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="y-hat plus or minus t critical times s times square root of 1 plus 1 over n plus (x_new minus x-bar) squared over sum of (x_j minus x-bar) squared">
-        <mover><mi>y</mi><mo>^</mo></mover>
-        <mo>∓</mo>
-        <msub>
-          <mi>t</mi>
-          <mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>/</mo><mn>2</mn><mo>,</mo><mi>n</mi><mo>−</mo><mn>2</mn></mrow>
-        </msub>
-        <mrow>
-          <mo>(</mo>
-          <mi>s</mi>
-          <msqrt>
-            <mrow>
-              <mn>1</mn>
-              <mo>+</mo>
-              <mfrac><mn>1</mn><mi>n</mi></mfrac>
-              <mo>+</mo>
-              <mfrac>
-                <msup>
-                  <mrow><mo>(</mo><msub><mi>x</mi><mi>new</mi></msub><mo>−</mo><mover><mi>x</mi><mo>_</mo></mover><mo>)</mo></mrow>
-                  <mn>2</mn>
-                </msup>
-                <mrow>
-                  <munderover>
-                    <mo>∑</mo>
-                    <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-                    <mi>n</mi>
-                  </munderover>
-                  <msup>
-                    <mrow><mo>(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><mover><mi>x</mi><mo>_</mo></mover><mo>)</mo></mrow>
-                    <mn>2</mn>
-                  </msup>
-                </mrow>
-              </mfrac>
-            </mrow>
-          </msqrt>
-          <mo>)</mo>
-        </mrow>
-      </math>
-
-      <p>Simultaneous inference:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="F test statistic for simultaneous inference">
-        <mi>T.S.</mi>
-        <mo>=</mo>
-        <mfrac>
-          <mfrac>
-            <mrow><msub><mi>SSE</mi><mi>red</mi></msub><mo>−</mo><msub><mi>SSE</mi><mi>full</mi></msub></mrow>
-            <mrow><msub><mi>dfE</mi><mi>red</mi></msub><mo>−</mo><msub><mi>dfE</mi><mi>full</mi></msub></mrow>
-          </mfrac>
-          <mfrac>
-            <msub><mi>SSE</mi><mi>full</mi></msub>
-            <msub><mi>dfE</mi><mi>full</mi></msub>
-          </mfrac>
-        </mfrac>
-        <mspace width="0.5em"></mspace>
-        <mover><mo>∼</mo><msub><mi>H</mi><mn>0</mn></msub></mover>
-        <mspace width="0.5em"></mspace>
-        <msub>
-          <mi>F</mi>
-          <mrow><msub><mi>ν</mi><mn>1</mn></msub><mo>,</mo><msub><mi>ν</mi><mn>2</mn></msub></mrow>
-        </msub>
-      </math>
-
-      <p>Where:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="nu_1 equals dfE reduced minus dfE full">
-        <msub><mi>ν</mi><mn>1</mn></msub>
-        <mo>=</mo>
-        <msub><mi>dfE</mi><mi>red</mi></msub>
+<p>Two sided C.I. (variance):</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="confidence interval from n minus 1 times s squared over chi-squared sub 1 minus alpha over 2 comma n minus 1, to n minus 1 times s squared over chi-squared sub alpha over 2 comma n minus 1">
+  <mrow>
+    <mo>(</mo>
+    <mfrac>
+      <mrow>
+        <mo>(</mo>
+        <mi>n</mi>
         <mo>−</mo>
-        <msub><mi>dfE</mi><mi>full</mi></msub>
-      </math>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="nu_2 equals dfE full">
-        <msub><mi>ν</mi><mn>2</mn></msub>
-        <mo>=</mo>
-        <msub><mi>dfE</mi><mi>full</mi></msub>
-      </math>
-    </section>
+        <mn>1</mn>
+        <mo>)</mo>
+        <msup>
+          <mi>s</mi>
+          <mn>2</mn>
+        </msup>
+      </mrow>
+      <msubsup>
+        <mi>χ</mi>
+        <mrow>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>−</mo>
+          <mi>α</mi>
+          <mo>/</mo>
+          <mn>2</mn>
+          <mo>,</mo>
+          <mi>n</mi>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>)</mo>
+        </mrow>
+        <mn>2</mn>
+      </msubsup>
+    </mfrac>
+    <mo>,</mo>
+    <mfrac>
+      <mrow>
+        <mo>(</mo>
+        <mi>n</mi>
+        <mo>−</mo>
+        <mn>1</mn>
+        <mo>)</mo>
+        <msup>
+          <mi>s</mi>
+          <mn>2</mn>
+        </msup>
+      </mrow>
+      <msubsup>
+        <mi>χ</mi>
+        <mrow>
+          <mo>(</mo>
+          <mi>α</mi>
+          <mo>/</mo>
+          <mn>2</mn>
+          <mo>,</mo>
+          <mi>n</mi>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>)</mo>
+        </mrow>
+        <mn>2</mn>
+      </msubsup>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>
+
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals n minus 1 times s squared over sigma squared sub 0, which under H sub 0 is distributed as chi-squared with n minus 1 degrees of freedom">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mo>(</mo>
+      <mi>n</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>)</mo>
+      <msup>
+        <mi>s</mi>
+        <mn>2</mn>
+      </msup>
+    </mrow>
+    <msubsup>
+      <mi>σ</mi>
+      <mn>0</mn>
+      <mn>2</mn>
+    </msubsup>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msubsup>
+    <mi>χ</mi>
+    <mrow>
+      <mi>n</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+    </mrow>
+    <mn>2</mn>
+  </msubsup>
+</math>    </section>
 
     <!-- CRD Model -->
     <section id="crd-model" aria-labelledby="crd-model-heading">

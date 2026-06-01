@@ -124,7 +124,7 @@
         <li><a href="#one-sample-nonparametric">One Sample - Nonparametric</a></li>
         <li><a href="#two-sample-mean">Two Sample - Mean</a></li>
         <li><a href="#two-sample-proportion">Two Sample - Proportion</a></li>
-        <li><a href="#rbd-model">RBD Model</a></li>
+        <li><a href="#two-sample-variance">Two Sample - Variance</a></li>
         <li><a href="#rbd-ss">RBD Sum of Squares</a></li>
         <li><a href="#rbd-inference">RBD Inference</a></li>
         <li><a href="#rbd-post-hoc">RBD Post Hoc</a></li>
@@ -1200,6 +1200,22 @@
   </msub>
   <mo>+</mo>
   <mn>2</mn>
+  <mo>,</mo>
+  <msub>
+    <mover>
+      <mi>n</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>Y</mi>
+  </msub>
+  <mo>=</mo>
+  <msub>
+    <mi>n</mi>
+    <mi>Y</mi>
+  </msub>
+  <mo>+</mo>
+  <mn>2</mn>
+  <mo>,</mo>
 </math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="p tilde sub X equals x plus 1 over n tilde sub X">
   <msub>
     <mover>
@@ -1221,6 +1237,28 @@
       <mo>~</mo>
     </mover>
     <mi>X</mi>
+  </msub>
+<mo>,</mo>
+  <msub>
+    <mover>
+      <mi>p</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>Y</mi>
+  </msub>
+  <mo>=</mo>
+  <mo>(</mo>
+  <mi>y</mi>
+  <mo>+</mo>
+  <mn>1</mn>
+  <mo>)</mo>
+  <mo>/</mo>
+  <msub>
+    <mover>
+      <mi>n</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>Y</mi>
   </msub>
 </math>.</p>
 
@@ -1330,30 +1368,150 @@
   <mi>)</mi>
 </math>    </section>
 
-    <!-- RBD Model -->
-    <section id="rbd-model" aria-labelledby="rbd-model-heading">
-      <h3 id="rbd-model-heading">RBD Model</h3>
+    <!-- Two Sample Inference - Population Variance -->
+    <section id="two-sample-variance" aria-labelledby="two-sample-variance-heading">
+      <h3 id="two-sample-variance-heading">Two Sample Inference - Population Variance</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Y_ij equals mu plus alpha_i plus beta_j plus epsilon_ij">
-        <msub><mi>Y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-        <mo>=</mo>
-        <mi>μ</mi><mo>+</mo>
-        <msub><mi>α</mi><mi>i</mi></msub>
-        <mo>+</mo>
-        <msub><mi>β</mi><mi>j</mi></msub>
-        <mo>+</mo>
-        <msub><mi>ϵ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-      </math>
+<p>Two sided C.I. (ratio of variances):</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="confidence interval from s squared sub X over s squared sub Y times 1 over F sub 1 minus alpha over 2 semicolon n sub X minus 1 comma n sub Y minus 1, to s squared sub X over s squared sub Y times 1 over F sub alpha over 2 semicolon n sub X minus 1 comma n sub Y minus 1">
+  <mrow>
+    <mo>(</mo>
+    <mfrac>
+      <msubsup>
+        <mi>s</mi>
+        <mi>X</mi>
+        <mn>2</mn>
+      </msubsup>
+      <msubsup>
+        <mi>s</mi>
+        <mi>Y</mi>
+        <mn>2</mn>
+      </msubsup>
+    </mfrac>
+    <mfrac>
+      <mn>1</mn>
+      <msub>
+        <mi>F</mi>
+        <mrow>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>−</mo>
+          <mi>α</mi>
+          <mo>/</mo>
+          <mn>2</mn>
+          <mo>;</mo>
+          <msub>
+            <mi>n</mi>
+            <mi>X</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <msub>
+            <mi>n</mi>
+            <mi>Y</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>)</mo>
+        </mrow>
+      </msub>
+    </mfrac>
+    <mo>,</mo>
+    <mfrac>
+      <msubsup>
+        <mi>s</mi>
+        <mi>X</mi>
+        <mn>2</mn>
+      </msubsup>
+      <msubsup>
+        <mi>s</mi>
+        <mi>Y</mi>
+        <mn>2</mn>
+      </msubsup>
+    </mfrac>
+    <mfrac>
+      <mn>1</mn>
+      <msub>
+        <mi>F</mi>
+        <mrow>
+          <mo>(</mo>
+          <mi>α</mi>
+          <mo>/</mo>
+          <mn>2</mn>
+          <mo>;</mo>
+          <msub>
+            <mi>n</mi>
+            <mi>X</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <msub>
+            <mi>n</mi>
+            <mi>Y</mi>
+          </msub>
+          <mo>−</mo>
+          <mn>1</mn>
+          <mo>)</mo>
+        </mrow>
+      </msub>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="epsilon_ij is i.i.d. Normal 0 sigma squared">
-        <msub><mi>ϵ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-        <mover><mo>∼</mo><mrow><mi>i</mi><mo>.</mo><mi>i</mi><mo>.</mo><mi>d</mi><mo>.</mo></mrow></mover>
-        <mi>N</mi>
-        <mo>(</mo><mn>0</mn><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo>
-      </math>
-    </section>
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals s squared sub X over s squared sub Y, divided by Delta sub 0, which under H sub 0 is distributed as F with n sub X minus 1 and n sub Y minus 1 degrees of freedom">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mfrac>
+      <msubsup>
+        <mi>s</mi>
+        <mi>X</mi>
+        <mn>2</mn>
+      </msubsup>
+      <msubsup>
+        <mi>s</mi>
+        <mi>Y</mi>
+        <mn>2</mn>
+      </msubsup>
+    </mfrac>
+    <msub>
+      <mi>Δ</mi>
+      <mn>0</mn>
+    </msub>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msub>
+    <mi>F</mi>
+    <mrow>
+      <msub>
+        <mi>n</mi>
+        <mi>X</mi>
+      </msub>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>,</mo>
+      <msub>
+        <mi>n</mi>
+        <mi>Y</mi>
+      </msub>
+      <mo>−</mo>
+      <mn>1</mn>
+    </mrow>
+  </msub>
+</math>    
+</section>
 
     <!-- RBD Sum of Squares -->
     <section id="rbd-ss" aria-labelledby="rbd-ss-heading">

@@ -123,7 +123,7 @@
         <li><a href="#one-sample-variance">One Sample - Variance</a></li>
         <li><a href="#one-sample-nonparametric">One Sample - Nonparametric</a></li>
         <li><a href="#two-sample-mean">Two Sample - Mean</a></li>
-        <li><a href="#post-hoc">Post Hoc Comparisons</a></li>
+        <li><a href="#two-sample-proportion">Two Sample - Proportion</a></li>
         <li><a href="#rbd-model">RBD Model</a></li>
         <li><a href="#rbd-ss">RBD Sum of Squares</a></li>
         <li><a href="#rbd-inference">RBD Inference</a></li>
@@ -1090,66 +1090,245 @@
 </math>.</p>    
 </section>
 
-    <!-- Post Hoc Comparisons -->
-    <section id="post-hoc" aria-labelledby="post-hoc-heading">
-      <h3 id="post-hoc-heading">Post Hoc Comparisons</h3>
+    <!-- Two Sample Inference - Population Proportion -->
+    <section id="two-sample-proportion" aria-labelledby="two-sample-proportion-heading">
+      <h3 id="two-sample-proportion-heading">Two Sample Inference - Population Proportion</h3>
 
-      <p>Bonferroni:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Bonferroni confidence interval for difference of treatment means">
-        <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
-        <mo>−</mo>
-        <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>j</mi><mo>+</mo></mrow></msub>
-        <mo>∓</mo>
+<p>Two sided C.I. (proportions):</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="p tilde sub X minus p tilde sub Y plus or minus z sub 1 minus alpha over 2, times square root of p tilde sub X times 1 minus p tilde sub X over n tilde sub X, plus p tilde sub Y times 1 minus p tilde sub Y over n tilde sub Y">
+  <msub>
+    <mover>
+      <mi>p</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>X</mi>
+  </msub>
+  <mo>−</mo>
+  <msub>
+    <mover>
+      <mi>p</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>Y</mi>
+  </msub>
+  <mo>∓</mo>
+  <msub>
+    <mi>z</mi>
+    <mrow>
+      <mn>1</mn>
+      <mo>−</mo>
+      <mi>α</mi>
+      <mo>/</mo>
+      <mn>2</mn>
+    </mrow>
+  </msub>
+  <msqrt>
+    <mfrac>
+      <mrow>
         <msub>
-          <mi>t</mi>
-          <mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>/</mo><mo>(</mo><mn>2</mn><mi>g</mi><mo>)</mo><mo>,</mo><mi>N</mi><mo>−</mo><mi>t</mi></mrow>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>X</mi>
         </msub>
-        <msqrt>
-          <mrow>
-            <mi>MSE</mi>
-            <mrow>
-              <mo>(</mo>
-              <mfrac><mn>1</mn><msub><mi>n</mi><mi>i</mi></msub></mfrac>
-              <mo>+</mo>
-              <mfrac><mn>1</mn><msub><mi>n</mi><mi>j</mi></msub></mfrac>
-              <mo>)</mo>
-            </mrow>
-          </mrow>
-        </msqrt>
-      </math>
-
-      <p>Tukey:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Tukey confidence interval for difference of treatment means">
-        <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
+        <mo>(</mo>
+        <mn>1</mn>
         <mo>−</mo>
-        <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>j</mi><mo>+</mo></mrow></msub>
-        <mo>∓</mo>
         <msub>
-          <mi>q</mi>
-          <mrow><mn>1</mn><mo>−</mo><mi>α</mi><mo>;</mo><mi>t</mi><mo>,</mo><mi>N</mi><mo>−</mo><mi>t</mi></mrow>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>X</mi>
         </msub>
-        <msqrt>
-          <mfrac><mi>MSE</mi><mi>n</mi></mfrac>
-        </msqrt>
-      </math>
+        <mo>)</mo>
+      </mrow>
+      <msub>
+        <mover>
+          <mi>n</mi>
+          <mo>~</mo>
+        </mover>
+        <mi>X</mi>
+      </msub>
+    </mfrac>
+    <mo>+</mo>
+    <mfrac>
+      <mrow>
+        <msub>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>Y</mi>
+        </msub>
+        <mo>(</mo>
+        <mn>1</mn>
+        <mo>−</mo>
+        <msub>
+          <mover>
+            <mi>p</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>Y</mi>
+        </msub>
+        <mo>)</mo>
+      </mrow>
+      <msub>
+        <mover>
+          <mi>n</mi>
+          <mo>~</mo>
+        </mover>
+        <mi>Y</mi>
+      </msub>
+    </mfrac>
+  </msqrt>
+</math>
 
-      <p>Where:</p>
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="n equals t divided by sum of reciprocals of n_i">
-        <mi>n</mi>
-        <mo>=</mo>
-        <mfrac>
-          <mi>t</mi>
-          <mrow>
-            <mfrac><mn>1</mn><msub><mi>n</mi><mn>1</mn></msub></mfrac>
-            <mo>+</mo><mo>⋯</mo><mo>+</mo>
-            <mfrac><mn>1</mn><msub><mi>n</mi><mi>t</mi></msub></mfrac>
-          </mrow>
-        </mfrac>
-      </math>
-    </section>
+<p>where <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="n tilde sub X equals n sub X plus 2">
+  <msub>
+    <mover>
+      <mi>n</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>X</mi>
+  </msub>
+  <mo>=</mo>
+  <msub>
+    <mi>n</mi>
+    <mi>X</mi>
+  </msub>
+  <mo>+</mo>
+  <mn>2</mn>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="p tilde sub X equals x plus 1 over n tilde sub X">
+  <msub>
+    <mover>
+      <mi>p</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>X</mi>
+  </msub>
+  <mo>=</mo>
+  <mo>(</mo>
+  <mi>x</mi>
+  <mo>+</mo>
+  <mn>1</mn>
+  <mo>)</mo>
+  <mo>/</mo>
+  <msub>
+    <mover>
+      <mi>n</mi>
+      <mo>~</mo>
+    </mover>
+    <mi>X</mi>
+  </msub>
+</math>.</p>
+
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals p tilde sub X minus p tilde sub Y minus Delta sub 0, over square root of p tilde sub X times 1 minus p tilde sub X over n tilde sub X, plus p tilde sub Y times 1 minus p tilde sub Y over n tilde sub Y, which under H sub 0 is distributed as normal with mean 0 and standard deviation 1">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msub>
+        <mover>
+          <mi>p</mi>
+          <mo>~</mo>
+        </mover>
+        <mi>X</mi>
+      </msub>
+      <mo>−</mo>
+      <msub>
+        <mover>
+          <mi>p</mi>
+          <mo>~</mo>
+        </mover>
+        <mi>Y</mi>
+      </msub>
+      <mo>−</mo>
+      <msub>
+        <mi>Δ</mi>
+        <mn>0</mn>
+      </msub>
+    </mrow>
+    <msqrt>
+      <mfrac>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>p</mi>
+              <mo>~</mo>
+            </mover>
+            <mi>X</mi>
+          </msub>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>−</mo>
+          <msub>
+            <mover>
+              <mi>p</mi>
+              <mo>~</mo>
+            </mover>
+            <mi>X</mi>
+          </msub>
+          <mo>)</mo>
+        </mrow>
+        <msub>
+          <mover>
+            <mi>n</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>X</mi>
+        </msub>
+      </mfrac>
+      <mo>+</mo>
+      <mfrac>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>p</mi>
+              <mo>~</mo>
+            </mover>
+            <mi>Y</mi>
+          </msub>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>−</mo>
+          <msub>
+            <mover>
+              <mi>p</mi>
+              <mo>~</mo>
+            </mover>
+            <mi>Y</mi>
+          </msub>
+          <mo>)</mo>
+        </mrow>
+        <msub>
+          <mover>
+            <mi>n</mi>
+            <mo>~</mo>
+          </mover>
+          <mi>Y</mi>
+        </msub>
+      </mfrac>
+    </msqrt>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <mi>N</mi>
+  <mi>(</mi>
+  <mn>0</mn>
+  <mo>,</mo>
+  <mn>1</mn>
+  <mi>)</mi>
+</math>    </section>
 
     <!-- RBD Model -->
     <section id="rbd-model" aria-labelledby="rbd-model-heading">

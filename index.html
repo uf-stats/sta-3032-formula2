@@ -125,7 +125,7 @@
         <li><a href="#two-sample-mean">Two Sample - Mean</a></li>
         <li><a href="#two-sample-proportion">Two Sample - Proportion</a></li>
         <li><a href="#two-sample-variance">Two Sample - Variance</a></li>
-        <li><a href="#rbd-ss">RBD Sum of Squares</a></li>
+        <li><a href="#two-sample-nonparametric">Two Sample - Nonparametric</a></li>
         <li><a href="#rbd-inference">RBD Inference</a></li>
         <li><a href="#rbd-post-hoc">RBD Post Hoc</a></li>
       </ul>
@@ -1513,123 +1513,70 @@
 </math>    
 </section>
 
-    <!-- RBD Sum of Squares -->
-    <section id="rbd-ss" aria-labelledby="rbd-ss-heading">
-      <h3 id="rbd-ss-heading">RBD Sum of Squares</h3>
+    <!-- Two Sample Inference - Nonparametric -->
+    <section id="two-sample-nonparametric" aria-labelledby="two-sample-nonparametric-heading">
+      <h3 id="two-sample-nonparametric-heading">Two Sample Inference - Nonparametric</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SST equals SSE plus SSTrt plus SSBlock">
-        <mi>SST</mi><mo>=</mo><mi>SSE</mi><mo>+</mo><mi>SSTrt</mi><mo>+</mo><mi>SSBlock</mi>
-      </math>
+<p>Wilcoxon rank-sum test:</p>
+<ol>
+  <li>rank all the data irrespective of sample</li>
+  <li>calculate the sum of the ranks associated with the smallest sample</li>
+</ol>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Degrees of freedom: bt minus 1 equals b minus 1 times t minus 1 plus t minus 1 plus b minus 1">
-        <mo>(</mo><mi>b</mi><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>=</mo>
-        <mo>(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>+</mo>
-        <mo>(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>+</mo>
-        <mo>(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-      </math>
+<p>Wilcoxon signed-rank test:</p>
+<ol>
+  <li>calculating the differences <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="d sub i equals x sub i minus y sub i minus Delta sub 0">
+    <msub>
+      <mi>d</mi>
+      <mi>i</mi>
+    </msub>
+    <mo>=</mo>
+    <mo>(</mo>
+    <msub>
+      <mi>x</mi>
+      <mi>i</mi>
+    </msub>
+    <mo>−</mo>
+    <msub>
+      <mi>y</mi>
+      <mi>i</mi>
+    </msub>
+    <mo>)</mo>
+    <mo>−</mo>
+    <msub>
+      <mi>Δ</mi>
+      <mn>0</mn>
+    </msub>
+  </math>,</li>
+  <li>proceed from step 2 in the Wilcoxon signed-rank one population setting.</li>
+</ol>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SST equals double sum of (y_ij minus y-bar++) squared">
-        <mi>SST</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>b</mi>
-        </munderover>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSTrt equals sum over i of b times (y-bar_i+ minus y-bar++) squared">
-        <mi>SSTrt</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <mi>b</mi>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSBlock equals sum over j of t times (y-bar_+j minus y-bar++) squared">
-        <mi>SSBlock</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>b</mi>
-        </munderover>
-        <mi>t</mi>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mi>j</mi></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="SSE equals double sum of (y_ij minus y-bar_i+ minus y-bar_+j plus y-bar++) squared">
-        <mi>SSE</mi><mo>=</mo>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>t</mi>
-        </munderover>
-        <munderover>
-          <mo>∑</mo>
-          <mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow>
-          <mi>b</mi>
-        </munderover>
-        <msup>
-          <mrow>
-            <mo>(</mo>
-            <msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mi>i</mi><mo>+</mo></mrow></msub>
-            <mo>−</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mi>j</mi></mrow></msub>
-            <mo>+</mo>
-            <msub><mover><mi>y</mi><mo>_</mo></mover><mrow><mo>+</mo><mo>+</mo></mrow></msub>
-            <mo>)</mo>
-          </mrow>
-          <mn>2</mn>
-        </msup>
-      </math>
-    </section>
+<p>Levene's test:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic under H sub 0 is distributed as F with t minus 1 and N minus t degrees of freedom">
+  <mi>T.S.</mi>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msub>
+    <mi>F</mi>
+    <mrow>
+      <mi>t</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>,</mo>
+      <mi>N</mi>
+      <mo>−</mo>
+      <mi>t</mi>
+    </mrow>
+  </msub>
+</math>
+</section>
 
     <!-- RBD Inference -->
     <section id="rbd-inference" aria-labelledby="rbd-inference-heading">

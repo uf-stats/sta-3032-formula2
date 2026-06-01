@@ -126,8 +126,7 @@
         <li><a href="#two-sample-proportion">Two Sample - Proportion</a></li>
         <li><a href="#two-sample-variance">Two Sample - Variance</a></li>
         <li><a href="#two-sample-nonparametric">Two Sample - Nonparametric</a></li>
-        <li><a href="#rbd-inference">RBD Inference</a></li>
-        <li><a href="#rbd-post-hoc">RBD Post Hoc</a></li>
+        <li><a href="#contingency">Contingency Tables</a></li>
       </ul>
     </nav>
   </header>
@@ -1578,55 +1577,191 @@
 </math>
 </section>
 
-    <!-- RBD Inference -->
-    <section id="rbd-inference" aria-labelledby="rbd-inference-heading">
-      <h3 id="rbd-inference-heading">RBD Inference</h3>
+    <!-- Contingency Tables -->
+    <section id="contingency" aria-labelledby="contingency-heading">
+      <h3 id="contingency-heading">Contingency Tables</h3>
 
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="Test statistic equals MSTrt over MSE, distributed as F with t minus 1 and (b minus 1)(t minus 1) degrees of freedom under H_0">
-        <mi>T.S.</mi>
-        <mo>=</mo>
-        <mfrac><mi>MSTrt</mi><mi>MSE</mi></mfrac>
-        <mspace width="0.5em"></mspace>
-        <mover><mo>∼</mo><msub><mi>H</mi><mn>0</mn></msub></mover>
-        <mspace width="0.5em"></mspace>
+<p>Expected value:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="E sub i j equals n sub i bullet times n sub bullet j over n">
+  <msub>
+    <mi>E</mi>
+    <mrow>
+      <mi>i</mi>
+      <mi>j</mi>
+    </mrow>
+  </msub>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msub>
+        <mi>n</mi>
+        <mrow>
+          <mi>i</mi>
+          <mo>∙</mo>
+        </mrow>
+      </msub>
+      <msub>
+        <mi>n</mi>
+        <mrow>
+          <mo>∙</mo>
+          <mi>j</mi>
+        </mrow>
+      </msub>
+    </mrow>
+    <mi>n</mi>
+  </mfrac>
+</math>
+
+<p>Test statistic:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="test statistic equals sum from i equals 1 to r, sum from j equals 1 to c, of n sub i j minus E sub i j squared over E sub i j, which under H sub 0 is distributed as chi-squared with r minus 1 times c minus 1 degrees of freedom">
+  <mi>T.S.</mi>
+  <mo>=</mo>
+  <munderover>
+    <mo>∑</mo>
+    <mrow>
+      <mi>i</mi>
+      <mo>=</mo>
+      <mn>1</mn>
+    </mrow>
+    <mi>r</mi>
+  </munderover>
+  <munderover>
+    <mo>∑</mo>
+    <mrow>
+      <mi>j</mi>
+      <mo>=</mo>
+      <mn>1</mn>
+    </mrow>
+    <mi>c</mi>
+  </munderover>
+  <mfrac>
+    <msup>
+      <mrow>
+        <mo>(</mo>
         <msub>
-          <mi>F</mi>
+          <mi>n</mi>
           <mrow>
-            <mi>t</mi><mo>−</mo><mn>1</mn><mo>,</mo>
-            <mo>(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-            <mo>(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
+            <mi>i</mi>
+            <mi>j</mi>
           </mrow>
         </msub>
-      </math>
+        <mo>−</mo>
+        <msub>
+          <mi>E</mi>
+          <mrow>
+            <mi>i</mi>
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>)</mo>
+      </mrow>
+      <mn>2</mn>
+    </msup>
+    <msub>
+      <mi>E</mi>
+      <mrow>
+        <mi>i</mi>
+        <mi>j</mi>
+      </mrow>
+    </msub>
+  </mfrac>
+  <mover>
+    <mo>∼</mo>
+    <mrow>
+      <msub>
+        <mtext style="font-size: 70%;">H</mtext>
+        <mn style="font-size: 70%;">0</mn>
+      </msub>
+    </mrow>
+  </mover>
+  <msubsup>
+    <mi>χ</mi>
+    <mrow>
+      <mo>(</mo>
+      <mi>r</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>)</mo>
+      <mo>(</mo>
+      <mi>c</mi>
+      <mo>−</mo>
+      <mn>1</mn>
+      <mo>)</mo>
+    </mrow>
+    <mn>2</mn>
+  </msubsup>
+</math>
+
+<p>Standardized residuals:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="r star sub i j equals n sub i j minus E sub i j over square root of E sub i j times 1 minus p sub i bullet times 1 minus p sub bullet j">
+  <msubsup>
+    <mi>r</mi>
+    <mrow>
+      <mi>i</mi>
+      <mi>j</mi>
+    </mrow>
+    <mo>⋆</mo>
+  </msubsup>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msub>
+        <mi>n</mi>
+        <mrow>
+          <mi>i</mi>
+          <mi>j</mi>
+        </mrow>
+      </msub>
+      <mo>−</mo>
+      <msub>
+        <mi>E</mi>
+        <mrow>
+          <mi>i</mi>
+          <mi>j</mi>
+        </mrow>
+      </msub>
+    </mrow>
+    <msqrt>
+      <msub>
+        <mi>E</mi>
+        <mrow>
+          <mi>i</mi>
+          <mi>j</mi>
+        </mrow>
+      </msub>
+      <mo>(</mo>
+      <mn>1</mn>
+      <mo>−</mo>
+      <msub>
+        <mi>p</mi>
+        <mrow>
+          <mi>i</mi>
+          <mo>∙</mo>
+        </mrow>
+      </msub>
+      <mo>)</mo>
+      <mo>(</mo>
+      <mn>1</mn>
+      <mo>−</mo>
+      <msub>
+        <mi>p</mi>
+        <mrow>
+          <mo>∙</mo>
+          <mi>j</mi>
+        </mrow>
+      </msub>
+      <mo>)</mo>
+    </msqrt>
+  </mfrac>
+</math>
     </section>
 
-    <!-- RBD Post Hoc -->
-    <section id="rbd-post-hoc" aria-labelledby="rbd-post-hoc-heading">
-      <h3 id="rbd-post-hoc-heading">RBD Post Hoc</h3>
 
-      <p>Same as in CRD with:</p>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="n_i equals b">
-        <msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mi>b</mi>
-      </math>
-
-      <p>and</p>
-
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
-            aria-label="df error equals (b minus 1)(t minus 1)">
-        <mi>df error</mi>
-        <mo>=</mo>
-        <mo>(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-        <mo>(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo>)</mo>
-      </math>
-    </section>
 
   </main>
 
   <footer role="contentinfo">
-    <p>&copy; 2026 STA 3032 Formula Sheet. For accessibility concerns, contact your instructor.</p>
+    <p>2026 STA 3032 Formula Sheet. For accessibility concerns, contact your instructor.</p>
   </footer>
 
 </body>
